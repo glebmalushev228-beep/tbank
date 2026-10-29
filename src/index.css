@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui,
+    sans-serif;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #3c3c3e;
+  --color-muted: #8a8a90;
+  --color-surface: #f2f2f4;
+  --color-accent: #ffdd2d;
+  --color-brand: #4b7bf5;
+  --color-brand-soft: #edf2ff;
+  --color-hairline: #efeff1;
+  --color-positive: #12a150;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: #f2f2f4;
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+input[type='datetime-local'] {
+  color-scheme: light;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes screen-rise {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.screen-rise {
+  animation: screen-rise 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.sheet-up {
+  animation: sheet-up 0.36s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+.sheet-down {
+  animation: sheet-down 0.26s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.backdrop-in {
+  animation: backdrop-in 0.24s ease-out both;
+}
+
+@keyframes toast-rise {
+  from {
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-rise {
+  animation: toast-rise 0.22s ease-out both;
+}
+
+@keyframes view-swap {
+  from {
+    opacity: 0.35;
+    transform: translateY(6px) scale(0.996);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.view-swap {
+  animation: view-swap 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view-swap,
+  .screen-rise,
+  .toast-rise {
+    animation: none;
+  }
+}
